@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedha - CASFETA CIVE</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>CASFETA CIVE</h2>
+                <p id="userRole">Mhazina</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashibodi</a>
+                <a href="members.html">👥 Wanachama</a>
+                <a href="events.html">📅 Matukio</a>
+                <a href="finances.html" class="active">💰 Fedha</a>
+                <a href="#" onclick="logout()">🚪 Toka</a>
+            </nav>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Usimamizi wa Fedha</h1>
+                <p>Tracking ya michango, sadaka na matumizi ya CASFETA</p>
+            </div>
+
+            <!-- FINANCIAL SUMMARY -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalContributionsSum">0</span>
+                    <span class="stat-label">Jumla ya Michango (TZS)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="thisMonthContributions">0</span>
+                    <span class="stat-label">Mchango Mwezi Huu</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalMembersPaid">0</span>
+                    <span class="stat-label">Waliyolipa Mwezi Huu</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="pendingPayments">0</span>
+                    <span class="stat-label">Malipo Yanayosubiri</span>
+                </div>
+            </div>
+
+            <!-- ADD CONTRIBUTION FORM -->
+            <div class="form-container">
+                <h3>💳 Rekodi Mchango Mpya</h3>
+                <form id="addContributionForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="contributor">Mwanachama</label>
+                            <select id="contributor" required>
+                                <option value="">--Chagua Mwanachama--</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="amount">Kiasi (TZS)</label>
+                            <input type="number" id="amount" required min="0" step="0.01">
+                        </div>
+                        <div class="input-group">
+                            <label for="contributionType">Aina ya Mchango</label>
+                            <select id="contributionType" required>
+                                <option value="mchango">Mchango wa Kawaida</option>
+                                <option value="sadaka">Sadaka</option>
+                                <option value="kujenga">Kujenga Kanisa</option>
+                                <option value="misheni">Misheni</option>
+                                <option value="matukio">Matukio</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="paymentMethod">Njia ya Malipo</label>
+                            <select id="paymentMethod" required>
+                                <option value="mpesa">M-Pesa</option>
+                                <option value="cash">Fedha Taslimu</option>
+                                <option value="airtel_money">Airtel Money</option>
+                                <option value="tigo_pesa">Tigo Pesa</option>
+                                <option value="bank">Benki</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="purpose">Madhumuni (Si lazima)</label>
+                        <input type="text" id="purpose" placeholder="K.v. Mchango wa Jumuiya">
+                    </div>
+                    <button type="submit" class="btn btn-success">💾 Rekodi Mchango</button>
+                </form>
+            </div>
+
+            <!-- CONTRIBUTIONS TABLE -->
+            <div class="data-table">
+                <div style="display: flex; justify-content: between; align-items: center; padding: 1rem;">
+                    <h3>Historia ya Michango ( <span id="contributionsCount">0</span> )</h3>
+                    <div>
+                        <button onclick="exportContributions()" class="btn btn-primary">📊 Toa Ripoti</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mwanachama</th>
+                            <th>Kiasi</th>
+                            <th>Aina</th>
+                            <th>Njia</th>
+                            <th>Tarehe</th>
+                            <th>Madhumuni</th>
+                            <th>Vitendo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contributionsTable">
+                        <!-- Contributions will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/finances.js"></script>
+</body>
+</html>
