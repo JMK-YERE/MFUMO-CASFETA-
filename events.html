@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matukio - CASFETA CIVE</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>CASFETA CIVE</h2>
+                <p id="userRole">Mwendeshaji</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashibodi</a>
+                <a href="members.html">👥 Wanachama</a>
+                <a href="events.html" class="active">📅 Matukio</a>
+                <a href="finances.html">💰 Fedha</a>
+                <a href="#" onclick="logout()">🚪 Toka</a>
+            </nav>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Usimamizi wa Matukio</h1>
+                <p>Ratiba na usimamizi wa matukio yote ya CASFETA</p>
+            </div>
+
+            <!-- ADD EVENT FORM -->
+            <div class="form-container">
+                <h3>🎪 Unda Tukio Jipya</h3>
+                <form id="addEventForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="eventName">Jina la Tukio</label>
+                            <input type="text" id="eventName" required placeholder="K.v. Ibada ya Jumapili">
+                        </div>
+                        <div class="input-group">
+                            <label for="eventType">Aina ya Tukio</label>
+                            <select id="eventType" required>
+                                <option value="ibada">Ibada</option>
+                                <option value="mkutano">Mkutano</option>
+                                <option value="kifamilia">Kifamilia</option>
+                                <option value="shughuli">Shughuli</option>
+                                <option value="misaada">Misaada</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="eventDate">Tarehe</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="eventTime">Muda</label>
+                            <input type="time" id="eventTime">
+                        </div>
+                        <div class="input-group">
+                            <label for="eventLocation">Mahali</label>
+                            <input type="text" id="eventLocation" required placeholder="K.v. Kanisa la CASFETA">
+                        </div>
+                        <div class="input-group">
+                            <label for="targetAudience">Lengo kwa</label>
+                            <select id="targetAudience" required>
+                                <option value="wote">Wote</option>
+                                <option value="wakaka">Wakaka pekee</option>
+                                <option value="wadada">Wadada pekee</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="eventDescription">Maelezo ya Ziada</label>
+                        <textarea id="eventDescription" rows="3" placeholder="Maelezo kamili ya tukio..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">✅ Unda Tukio</button>
+                </form>
+            </div>
+
+            <!-- EVENTS TABLE -->
+            <div class="data-table">
+                <div style="display: flex; justify-content: between; align-items: center; padding: 1rem;">
+                    <h3>Matukio Yajayo ( <span id="eventsCount">0</span> )</h3>
+                    <div>
+                        <button onclick="showPastEvents()" class="btn" style="margin-right: 10px;">📜 Matukio YaPita</button>
+                        <button onclick="showUpcomingEvents()" class="btn btn-primary">📅 Matukio Yajayo</button>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jina la Tukio</th>
+                            <th>Tarehe</th>
+                            <th>Muda</th>
+                            <th>Mahali</th>
+                            <th>Aina</th>
+                            <th>Lengo</th>
+                            <th>Vitendo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTable">
+                        <!-- Events will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/events.js"></script>
+</body>
+</html>
