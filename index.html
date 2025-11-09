@@ -136,7 +136,7 @@
     </div>
 
     <script>
-        // SIMPLE AUTH SYSTEM - NO ROLE SELECTION
+        // SIMPLE AUTH SYSTEM
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -144,37 +144,22 @@
             const password = document.getElementById('password').value;
             const errorElement = document.getElementById('errorMessage');
             
-            // Test users with auto-role detection
+            // Test users
             const testUsers = {
                 'mwenyekiti@casfeta.cive': { 
                     password: 'casfeta2024', 
                     role: 'mwenyekiti', 
-                    name: 'Admin Mwenyekiti',
-                    dashboard: 'pages/dashboard-mwenyekiti.html'
+                    name: 'Admin Mwenyekiti'
                 },
                 'katibu@casfeta.cive': { 
                     password: 'casfeta2024', 
                     role: 'katibu', 
-                    name: 'John Katibu',
-                    dashboard: 'pages/dashboard-katibu.html'
+                    name: 'John Katibu'
                 },
                 'mhazina@casfeta.cive': { 
                     password: 'casfeta2024', 
                     role: 'mhazina', 
-                    name: 'Sarah Mhazina',
-                    dashboard: 'pages/dashboard-mhazina.html'
-                },
-                'bakada@casfeta.cive': { 
-                    password: 'casfeta2024', 
-                    role: 'bakada', 
-                    name: 'David Bakada',
-                    dashboard: 'pages/dashboard-bakada.html'
-                },
-                'makada@casfeta.cive': { 
-                    password: 'casfeta2024', 
-                    role: 'makada', 
-                    name: 'Grace Makada',
-                    dashboard: 'pages/dashboard-makada.html'
+                    name: 'Sarah Mhazina'
                 }
             };
             
@@ -186,12 +171,11 @@
                     email: email,
                     role: userData.role,
                     name: userData.name,
-                    loggedIn: true,
-                    dashboard: userData.dashboard
+                    loggedIn: true
                 }));
                 
-                // Redirect to specific dashboard
-                window.location.href = userData.dashboard;
+                // Redirect to SINGLE DASHBOARD
+                window.location.href = 'dashboard.html';
                 
             } else {
                 errorElement.textContent = 'Barua pepe au nywila si sahihi! Tumia: mwenyekiti@casfeta.cive / casfeta2024';
@@ -202,8 +186,8 @@
         const currentUser = localStorage.getItem('casfeta_user');
         if (currentUser) {
             const user = JSON.parse(currentUser);
-            if (user.loggedIn && user.dashboard) {
-                window.location.href = user.dashboard;
+            if (user.loggedIn) {
+                window.location.href = 'dashboard.html';
             }
         }
     </script>
