@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanachama - CASFETA CIVE</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>CASFETA CIVE</h2>
+                <p id="userRole">Katibu</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">📊 Dashibodi</a>
+                <a href="members.html" class="active">👥 Wanachama</a>
+                <a href="events.html">📅 Matukio</a>
+                <a href="finances.html">💰 Fedha</a>
+                <a href="#" onclick="logout()">🚪 Toka</a>
+            </nav>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Usimamizi wa Wanachama</h1>
+                <p>Orodha ya wanachama wote wa CASFETA CIVE</p>
+            </div>
+
+            <!-- ADD MEMBER FORM -->
+            <div class="form-container">
+                <h3>🎯 Saidia Mwanachama Mpya</h3>
+                <form id="addMemberForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="fullName">Jina Kamili</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="memberEmail">Barua Pepe</label>
+                            <input type="email" id="memberEmail" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="memberPhone">Namba ya Simu</label>
+                            <input type="tel" id="memberPhone" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="memberDepartment">Idara/Chuo</label>
+                            <input type="text" id="memberDepartment" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="memberYear">Mwaka wa Masomo</label>
+                            <select id="memberYear" required>
+                                <option value="">--Chagua Mwaka--</option>
+                                <option value="Mwaka 1">Mwaka 1</option>
+                                <option value="Mwaka 2">Mwaka 2</option>
+                                <option value="Mwaka 3">Mwaka 3</option>
+                                <option value="Mwaka 4">Mwaka 4</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="memberRole">Jukumu</label>
+                            <select id="memberRole" required>
+                                <option value="mwanachama">Mwanachama</option>
+                                <option value="mwenyekiti">Mwenyekiti</option>
+                                <option value="katibu">Katibu</option>
+                                <option value="mhazina">Mhazina</option>
+                                <option value="bakada">Bakada</option>
+                                <option value="makada">Makada</option>
+                                <option value="mwendeshaji">Mwendeshaji Matukio</option>
+                                <option value="it_support">IT Support</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">✅ Saidia Mwanachama</button>
+                </form>
+            </div>
+
+            <!-- MEMBERS TABLE -->
+            <div class="data-table">
+                <div style="display: flex; justify-content: between; align-items: center; padding: 1rem;">
+                    <h3>Orodha ya Wanachama ( <span id="membersCount">0</span> )</h3>
+                    <input type="text" id="searchMembers" placeholder="🔍 Tafuta mwanachama..." style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jina Kamili</th>
+                            <th>Barua Pepe</th>
+                            <th>Simu</th>
+                            <th>Idara</th>
+                            <th>Jukumu</th>
+                            <th>Vitendo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTable">
+                        <!-- Members will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/members.js"></script>
+</body>
+</html>
