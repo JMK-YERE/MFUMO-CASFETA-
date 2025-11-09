@@ -136,7 +136,7 @@
     </div>
 
     <script>
-        // SIMPLE AUTH SYSTEM
+        // FIX: Remove auto-redirect - only redirect after successful login
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -144,6 +144,9 @@
             const password = document.getElementById('password').value;
             const errorElement = document.getElementById('errorMessage');
             
+            // Clear previous errors
+            errorElement.textContent = '';
+
             // Test users
             const testUsers = {
                 'mwenyekiti@casfeta.cive': { 
@@ -160,11 +163,25 @@
                     password: 'casfeta2024', 
                     role: 'mhazina', 
                     name: 'Sarah Mhazina'
+                },
+                'bakada@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'bakada', 
+                    name: 'David Bakada'
+                },
+                'makada@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'makada', 
+                    name: 'Grace Makada'
                 }
             };
             
+            console.log("🔐 Attempting login for:", email);
+            
             // Check login credentials
             if (testUsers[email] && testUsers[email].password === password) {
+                console.log("✅ Login successful!");
+                
                 // Store user info
                 const userData = testUsers[email];
                 localStorage.setItem('casfeta_user', JSON.stringify({
@@ -174,22 +191,20 @@
                     loggedIn: true
                 }));
                 
-                // Redirect to SINGLE DASHBOARD
+                console.log("💾 User data saved to localStorage");
+                
+                // Redirect to dashboard
+                console.log("🔄 Redirecting to dashboard...");
                 window.location.href = 'dashboard.html';
                 
             } else {
+                console.log("❌ Login failed!");
                 errorElement.textContent = 'Barua pepe au nywila si sahihi! Tumia: mwenyekiti@casfeta.cive / casfeta2024';
             }
         });
 
-        // Check if already logged in
-        const currentUser = localStorage.getItem('casfeta_user');
-        if (currentUser) {
-            const user = JSON.parse(currentUser);
-            if (user.loggedIn) {
-                window.location.href = 'dashboard.html';
-            }
-        }
+        // FIX: Only check if user wants to clear existing session
+        // Remove the auto-redirect code completely
     </script>
 </body>
 </html>
