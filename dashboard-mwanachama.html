@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mwanachama</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #f5f5f5; min-height: 100vh; }
+        .dashboard-header { background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%); color: white; padding: 25px; text-align: center; }
+        .dashboard-nav { background: white; padding: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .nav-btn { padding: 10px 20px; background: #95a5a6; color: white; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; }
+        .main-content { padding: 30px 20px; max-width: 1200px; margin: 0 auto; }
+        .member-features { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div class="dashboard-header">
+        <h1>👤 DASHIBODI YA MWANACHAMA</h1>
+        <p>Mwanachama wa CASFETA CIVE - Mwanachama wa Kawaida</p>
+    </div>
+    
+    <div class="dashboard-nav">
+        <a href="dashboard-mwanachama.html" class="nav-btn">🏠 Dashibodi</a>
+        <a href="#" class="nav-btn">👁️ Angalia Profaili</a>
+        <a href="#" class="nav-btn">💵 Lipa Mchango</a>
+        <a href="#" class="nav-btn">📅 Angalia Matukio</a>
+        <button class="nav-btn" onclick="logout()" style="background:#2c3e50;">🚪 Toka</button>
+    </div>
+    
+    <div class="main-content">
+        <div class="member-features">
+            <h2>🌟 Uwezo wa Mwanachama:</h2>
+            <p>✅ Kuona profaili yako binafsi</p>
+            <p>✅ Kulipa michango yako</p>
+            <p>✅ Kuona ratiba ya matukio</p>
+            <p>✅ Kujiunga na huduma</p>
+            <p>✅ Kuwasiliana na viongozi</p>
+        </div>
+    </div>
+
+    <script>
+        const user = localStorage.getItem('casfeta_user');
+        if (!user) window.location.href = 'index.html';
+        function logout() { localStorage.removeItem('casfeta_user'); window.location.href = 'index.html'; }
+    </script>
+</body>
+</html>
