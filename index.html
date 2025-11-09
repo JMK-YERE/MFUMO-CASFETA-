@@ -4,19 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CASFETA CIVE - Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* CSS DIRECTLY IN HTML */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .login-header p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .login-footer {
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login-footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="login-body">
+<body>
     <div class="login-container">
         <div class="login-header">
             <h1>📖 CASFETA CIVE</h1>
             <p>Christ Ambassadors Student Fellowship - UDOM</p>
         </div>
         
-        <form id="loginForm" class="login-form">
+        <form id="loginForm">
             <div class="input-group">
                 <label for="email">Barua Pepe</label>
-                <input type="email" id="email" required placeholder="weka barua pepe yako">
+                <input type="email" id="email" required placeholder="mwenyekiti@casfeta.cive">
             </div>
             
             <div class="input-group">
@@ -24,31 +125,87 @@
                 <input type="password" id="password" required placeholder="weka nywila yako">
             </div>
             
-            <div class="input-group">
-                <label for="role">Jukumu Lako</label>
-                <select id="role" required>
-                    <option value="">--Chagua Jukumu--</option>
-                    <option value="mwenyekiti">Mwenyekiti</option>
-                    <option value="katibu">Katibu</option>
-                    <option value="mhazina">Mhazina</option>
-                    <option value="mwanachama">Mwanachama</option>
-                    <option value="bakada">Bakada</option>
-                    <option value="makada">Makada</option>
-                    <option value="mwendeshaji">Mwendeshaji Matukio</option>
-                    <option value="it_support">IT Support</option>
-                </select>
-            </div>
-            
             <button type="submit" class="login-btn">Ingia Mfumo</button>
         </form>
+
+        <div id="errorMessage" class="error-message"></div>
         
         <div class="login-footer">
             <p>Huna akaunti? <a href="#" onclick="alert('Wasiliana na Mwenyekiti kwa usajili')">Omewa hapa</a></p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="js/config.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        // SIMPLE AUTH SYSTEM - NO ROLE SELECTION
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('errorMessage');
+            
+            // Test users with auto-role detection
+            const testUsers = {
+                'mwenyekiti@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'mwenyekiti', 
+                    name: 'Admin Mwenyekiti',
+                    dashboard: 'pages/dashboard-mwenyekiti.html'
+                },
+                'katibu@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'katibu', 
+                    name: 'John Katibu',
+                    dashboard: 'pages/dashboard-katibu.html'
+                },
+                'mhazina@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'mhazina', 
+                    name: 'Sarah Mhazina',
+                    dashboard: 'pages/dashboard-mhazina.html'
+                },
+                'bakada@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'bakada', 
+                    name: 'David Bakada',
+                    dashboard: 'pages/dashboard-bakada.html'
+                },
+                'makada@casfeta.cive': { 
+                    password: 'casfeta2024', 
+                    role: 'makada', 
+                    name: 'Grace Makada',
+                    dashboard: 'pages/dashboard-makada.html'
+                }
+            };
+            
+            // Check login credentials
+            if (testUsers[email] && testUsers[email].password === password) {
+                // Store user info
+                const userData = testUsers[email];
+                localStorage.setItem('casfeta_user', JSON.stringify({
+                    email: email,
+                    role: userData.role,
+                    name: userData.name,
+                    loggedIn: true,
+                    dashboard: userData.dashboard
+                }));
+                
+                // Redirect to specific dashboard
+                window.location.href = userData.dashboard;
+                
+            } else {
+                errorElement.textContent = 'Barua pepe au nywila si sahihi! Tumia: mwenyekiti@casfeta.cive / casfeta2024';
+            }
+        });
+
+        // Check if already logged in
+        const currentUser = localStorage.getItem('casfeta_user');
+        if (currentUser) {
+            const user = JSON.parse(currentUser);
+            if (user.loggedIn && user.dashboard) {
+                window.location.href = user.dashboard;
+            }
+        }
+    </script>
 </body>
 </html>
