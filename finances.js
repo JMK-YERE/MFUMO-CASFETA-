@@ -188,4 +188,14 @@ async function addContribution(e) {
         
     } catch (error) {
         console.error('Error adding contribution:', error);
-        alert('Error adding contribution:
+        alert('Error adding contribution: ' + error.message);
+    }
+}
+
+function editContribution(contributionId) {
+    alert('📝 Hariri mchango utafutwa baadaye... ID: ' + contributionId);
+}
+
+function exportContributions() {
+    alert('📊 Kutoa ripoti kwa Excel utafutwa baadaye...');
+}
