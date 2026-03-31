@@ -13,6 +13,7 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; }
         .login-wrapper { min-height: 100vh; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; padding: 20px; }
         .login-card { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 30px; width: 100%; max-width: 450px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .login-card h2 { color: #1e3c72; }
         .register-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9ecef; }
         .register-link { color: #1e3c72; cursor: pointer; text-decoration: none; font-weight: 500; }
         .dashboard { display: flex; min-height: 100vh; }
@@ -20,16 +21,14 @@
         .sidebar-header { padding: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .sidebar-header h3 { font-size: 1.2rem; margin-bottom: 5px; }
         .sidebar-menu { list-style: none; padding: 0; margin: 15px 0; }
-        .sidebar-menu li a { display: flex; align-items: center; padding: 12px 20px; color: rgba(255,255,255,0.85); text-decoration: none; transition: all 0.3s; gap: 12px; }
-        .sidebar-menu li a i { width: 24px; font-size: 1rem; }
+        .sidebar-menu li a { display: flex; align-items: center; padding: 12px 20px; color: rgba(255,255,255,0.85); text-decoration: none; gap: 12px; }
+        .sidebar-menu li a i { width: 24px; }
         .sidebar-menu li a:hover, .sidebar-menu li a.active { background: rgba(255,255,255,0.15); color: white; border-left: 3px solid #ffc107; }
         .main-content { flex: 1; margin-left: 280px; padding: 20px; }
         .top-bar { background: white; border-radius: 15px; padding: 12px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .page-title h2 { font-size: 1.3rem; margin: 0; color: #1e3c72; }
-        .user-menu { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
         .user-badge { display: flex; align-items: center; gap: 10px; background: #f8f9fa; padding: 5px 12px; border-radius: 40px; }
         .role-badge { background: #1e3c72; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; }
-        .stat-card { background: white; border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 20px; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .stat-card { background: white; border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
         .card { border: none; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 20px; }
         .card-header { background: white; border-bottom: 1px solid #e9ecef; padding: 12px 20px; font-weight: 600; border-radius: 15px 15px 0 0; }
         .photo-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
@@ -42,21 +41,26 @@
         .share-status { background: #075E54; color: white; }
         .copy-link { background: #6c757d; color: white; }
         .payment-card { background: #f8f9fa; border-radius: 12px; padding: 12px; margin-bottom: 10px; }
-        .copy-number { cursor: pointer; color: #1e3c72; font-size: 0.75rem; margin-left: 5px; }
+        .payment-number-item { background: #e9ecef; padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
         .loading-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 9999; }
         .hidden { display: none !important; }
         .toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
         .change-password-btn { background: none; border: none; color: #1e3c72; cursor: pointer; margin-left: 10px; }
         .password-wrapper { position: relative; }
-        .toggle-password { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6c757d; z-index: 10; }
+        .toggle-password { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6c757d; }
+        .progress-bar-custom { height: 8px; background: #e9ecef; border-radius: 4px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { height: 100%; background: #28a745; transition: width 0.3s; }
+        .payment-status { font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; }
+        .status-complete { background: #28a745; color: white; }
+        .status-partial { background: #ffc107; color: #856404; }
         @media (max-width: 768px) {
             .sidebar { width: 70px; }
             .sidebar-header h3, .sidebar-header small, .sidebar-menu li a span { display: none; }
             .sidebar-menu li a i { margin: 0; font-size: 1.2rem; }
             .main-content { margin-left: 70px; }
         }
-        .payment-number-item { background: #e9ecef; padding: 8px 12px; border-radius: 10px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .whatsapp-share-btn { background: #25D366; color: white; border: none; padding: 8px 15px; border-radius: 25px; font-size: 0.8rem; margin-top: 10px; }
+        .poster-img { max-height: 200px; object-fit: cover; width: 100%; }
+        .talent-badge { background: #e9ecef; padding: 2px 8px; border-radius: 15px; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -64,7 +68,7 @@
         <div class="login-card">
             <div class="text-center mb-4">
                 <i class="fas fa-church fa-4x text-primary mb-3"></i>
-                <h2 class="text-primary">CASFETA TAYOMI</h2>
+                <h2>CASFETA TAYOMI</h2>
                 <p class="text-muted">Mfumo Kamili wa Usimamizi wa Kanisa</p>
             </div>
             <div id="loginError" class="alert alert-danger hidden"></div>
@@ -135,14 +139,16 @@
     <!-- Modals -->
     <div class="modal fade" id="changePasswordModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Badilisha Nenosiri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="password-wrapper mb-2"><input type="password" class="form-control" id="oldPassword" placeholder="Nenosiri la sasa"><i class="fas fa-eye toggle-password" onclick="togglePassword('oldPassword')"></i></div><div class="password-wrapper mb-2"><input type="password" class="form-control" id="newPassword" placeholder="Nenosiri jipya"><i class="fas fa-eye toggle-password" onclick="togglePassword('newPassword')"></i></div><div class="password-wrapper"><input type="password" class="form-control" id="confirmPassword" placeholder="Rudia nenosiri jipya"><i class="fas fa-eye toggle-password" onclick="togglePassword('confirmPassword')"></i></div></div><div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Funga</button><button class="btn btn-primary" onclick="changePassword()">Hifadhi</button></div></div></div></div>
     <div class="modal fade" id="memberModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Ongeza Mwanachama</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="firstName" placeholder="Jina la Kwanza"><input type="text" class="form-control mb-2" id="lastName" placeholder="Jina la Mwisho"><input type="email" class="form-control mb-2" id="email" placeholder="Barua Pepe"><input type="tel" class="form-control mb-2" id="phone" placeholder="Simu"><select class="form-select mb-2" id="memberRole"><option value="member">Mwanachama</option><option value="secretary">Katibu</option><option value="treasurer">Mweka Hazina</option><option value="makada">Makada</option><option value="bakada">Bakada</option><option value="chairperson">Mwenyekiti</option><option value="it">IT</option></select><select class="form-select" id="talent"><option value="">Karama</option><option value="Uimbaji">Uimbaji</option><option value="Uinjilisti">Uinjilisti</option><option value="Maombi">Maombi</option><option value="Uchungaji">Uchungaji</option><option value="Ualimu">Ualimu</option><option value="Media/IT">Media/IT</option></select></div><div class="modal-footer"><button class="btn btn-primary" onclick="addMember()">Hifadhi</button></div></div></div></div>
-    <div class="modal fade" id="contributionModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Ongeza Mchango</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><select class="form-select mb-2" id="contributionType"><option value="">Aina ya Mchango</option><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option><option value="Shukrani">Shukrani</option></select><input type="number" class="form-control mb-2" id="amount" placeholder="Kiasi"><select class="form-select mb-2" id="paymentMethod"><option value="Cash">Cash</option><option value="M-Pesa">M-Pesa</option><option value="Tigo Pesa">Tigo Pesa</option><option value="Airtel">Airtel</option></select><input type="text" class="form-control" id="paymentNumber" placeholder="Namba ya malipo (kwa M-Pesa/Tigo/Airtel)"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addContribution()">Hifadhi</button></div></div></div></div>
-    <div class="modal fade" id="announcementModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Tangazo Jipya</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="annTitle" placeholder="Kichwa"><textarea class="form-control mb-2" id="annContent" rows="3" placeholder="Maelezo"></textarea><select class="form-select" id="annGender"><option value="all">Kwa Wote</option><option value="wanawake">Kwa Wanawake Tu</option><option value="wanaume">Kwa Wanaume Tu</option></select><input type="text" class="form-control" id="annRecipient" placeholder="Mhusika (kwa tangazo la mtu maalum - hiari)"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addAnnouncement()">Chapisha</button></div></div></div></div>
-    <div class="modal fade" id="postModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Chapisha Tukio/Poster</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="postTitle" placeholder="Kichwa"><textarea class="form-control mb-2" id="postContent" rows="2" placeholder="Maelezo"></textarea><input type="text" class="form-control mb-2" id="postImage" placeholder="URL ya Picha"><select class="form-select mb-2" id="postType"><option value="event">Tukio</option><option value="poster">Poster</option><option value="live">Live Streaming</option></select><input type="url" class="form-control" id="postLink" placeholder="Link ya Live"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addPost()">Chapisha</button></div></div></div></div>
+    <div class="modal fade" id="contributionModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Tangaza Mchango</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><select class="form-select mb-2" id="contributionType"><option value="">Aina ya Mchango</option><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option><option value="Shukrani">Shukrani</option></select><input type="number" class="form-control mb-2" id="amount" placeholder="Kiasi"><select class="form-select mb-2" id="paymentMethod"><option value="Cash">Cash</option><option value="M-Pesa">M-Pesa</option><option value="Tigo Pesa">Tigo Pesa</option><option value="Airtel">Airtel</option></select><input type="text" class="form-control" id="paymentNumber" placeholder="Namba ya malipo (kwa uthibitisho)"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addContribution()">Hifadhi</button></div></div></div></div>
+    <div class="modal fade" id="announcementModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Tangazo Jipya</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="annTitle" placeholder="Kichwa"><textarea class="form-control mb-2" id="annContent" rows="3" placeholder="Maelezo"></textarea><select class="form-select mb-2" id="annGender"><option value="all">Kwa Wote</option><option value="wanawake">Kwa Wanawake Tu</option><option value="wanaume">Kwa Wanaume Tu</option></select><input type="text" class="form-control" id="annRecipient" placeholder="Mhusika (kwa tangazo la mtu maalum - hiari)"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addAnnouncement()">Chapisha</button></div></div></div></div>
+    <div class="modal fade" id="postModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Chapisha Tukio/Poster</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="postTitle" placeholder="Kichwa"><textarea class="form-control mb-2" id="postContent" rows="2" placeholder="Maelezo"></textarea><input type="text" class="form-control mb-2" id="postImage" placeholder="URL ya Picha"><select class="form-select mb-2" id="postType"><option value="event">Tukio</option><option value="poster">Poster</option><option value="live">Live Streaming</option><option value="gallery">Picha</option></select><input type="url" class="form-control" id="postLink" placeholder="Link ya Live"></div><div class="modal-footer"><button class="btn btn-primary" onclick="addPost()">Chapisha</button></div></div></div></div>
     <div class="modal fade" id="paymentModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Fanya Malipo</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body" id="paymentDetails"></div></div></div></div>
     <div class="modal fade" id="timetableModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Ratiba ya Shughuli</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="scheduleDay" placeholder="Siku"><input type="time" class="form-control mb-2" id="scheduleTime" placeholder="Muda"><input type="text" class="form-control mb-2" id="scheduleActivity" placeholder="Shughuli"><button class="btn btn-primary w-100" onclick="addSchedule()">Ongeza Ratiba</button><hr><div id="scheduleList"></div></div></div></div></div>
     <div class="modal fade" id="counselingModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Wasiliana kwa Siri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><select class="form-select mb-2" id="counselingType"><option value="">Aina ya Ombi</option><option value="marriage">Ushauri wa Ndoa/Uchumba</option><option value="discipline">Nidhamu/Kesi</option><option value="life">Msaada wa Kiuchumi/Maisha</option><option value="guidance">Mawaidha</option></select><textarea class="form-control" id="counselingDetails" rows="4" placeholder="Maelezo yako..."></textarea></div><div class="modal-footer"><button class="btn btn-primary" onclick="sendCounseling()">Tuma kwa Siri</button></div></div></div></div>
     <div class="modal fade" id="paymentMethodModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Njia za Malipo za Kanisa</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div id="paymentNumbersList"></div><button class="btn btn-sm btn-success w-100 mt-2" onclick="addPaymentNumber()"><i class="fas fa-plus"></i> Ongeza Namba ya Malipo</button></div><div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Funga</button></div></div></div></div>
     <div class="modal fade" id="addPaymentNumberModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Ongeza Namba ya Malipo</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><select class="form-select mb-2" id="newPaymentProvider"><option value="M-Pesa">M-Pesa</option><option value="Tigo Pesa">Tigo Pesa</option><option value="Airtel Money">Airtel Money</option><option value="Benki">Benki</option></select><input type="text" class="form-control mb-2" id="newPaymentNumber" placeholder="Namba ya Malipo"><input type="text" class="form-control" id="newPaymentName" placeholder="Jina la Akaunti (kwa Benki)"></div><div class="modal-footer"><button class="btn btn-primary" onclick="saveNewPaymentNumber()">Hifadhi</button></div></div></div></div>
+    <div class="modal fade" id="expenseModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Rekodi Matumizi ya Kanisa</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="text" class="form-control mb-2" id="expenseDesc" placeholder="Maelezo ya Matumizi"><input type="number" class="form-control mb-2" id="expenseAmount" placeholder="Kiasi (TZS)"><input type="date" class="form-control" id="expenseDate" value=""></div><div class="modal-footer"><button class="btn btn-primary" onclick="addExpense()">Hifadhi</button></div></div></div></div>
+    <div class="modal fade" id="replyCounselingModal" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Jibu Ombi la Ushauri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="hidden" id="replyRequestId"><p id="replyRequestFrom"></p><textarea class="form-control" id="replyMessage" rows="4" placeholder="Jibu lako..."></textarea></div><div class="modal-footer"><button class="btn btn-primary" onclick="submitReply()">Tuma Jibu</button></div></div></div></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -151,15 +157,16 @@
         let members = [
             { id: 1, firstName: "Admin", lastName: "Chair", email: "chair@casfeta.org", phone: "0712345678", gender: "Ke", role: "chairperson", talent: "Uongozi", status: "approved", password: "chair123" },
             { id: 2, firstName: "Admin", lastName: "Secretary", email: "sec@casfeta.org", phone: "0755123456", gender: "Me", role: "secretary", talent: "Uandishi", status: "approved", password: "sec123" },
-            { id: 3, firstName: "Admin", lastName: "Treasurer", email: "treasurer@casfeta.org", phone: "0688123456", gender: "Ke", role: "treasurer", talent: "Hesabu", status: "approved", password: "treas123" },
-            { id: 4, firstName: "Mama", lastName: "Makada", email: "makada@casfeta.org", phone: "0711111111", gender: "Me", role: "makada", talent: "Ushauri", status: "approved", password: "makada123" },
-            { id: 5, firstName: "Baba", lastName: "Bakada", email: "bakada@casfeta.org", phone: "0722222222", gender: "Ke", role: "bakada", talent: "Ushauri", status: "approved", password: "bakada123" },
-            { id: 6, firstName: "IT", lastName: "Admin", email: "it@casfeta.org", phone: "0733333333", gender: "Ke", role: "it", talent: "Media", status: "approved", password: "it123" },
-            { id: 7, firstName: "Member", lastName: "Test", email: "member@casfeta.org", phone: "0744444444", gender: "Me", role: "member", talent: "Uimbaji", status: "approved", password: "member123" }
+            { id: 3, firstName: "Admin", lastName: "Treasurer", email: "treasurer@casfeta.org", phone: "0688123456", gender: "Ke", role: "treasurer", talent: "Hesabu", status: "approved", password: "treasurer123" },
+            { id: 4, firstName: "Grace", lastName: "Makada", email: "makada@casfeta.org", phone: "0755123789", gender: "Me", role: "makada", talent: "Ushauri", status: "approved", password: "makada123" },
+            { id: 5, firstName: "James", lastName: "Bakada", email: "bakada@casfeta.org", phone: "0688123999", gender: "Ke", role: "bakada", talent: "Ushauri", status: "approved", password: "bakada123" },
+            { id: 6, firstName: "David", lastName: "IT", email: "it@casfeta.org", phone: "0712345000", gender: "Ke", role: "it", talent: "Media", status: "approved", password: "it123" },
+            { id: 7, firstName: "John", lastName: "Member", email: "member@casfeta.org", phone: "0712345679", gender: "Ke", role: "member", talent: "Uimbaji", status: "approved", password: "member123" },
+            { id: 8, firstName: "Mary", lastName: "Member", email: "mary@casfeta.org", phone: "0755123457", gender: "Me", role: "member", talent: "Maombi", status: "approved", password: "member123" }
         ];
         let contributions = [];
-        let announcements = [{ id: 1, title: "Karibu Kanisani", content: "Karibu katika ibada zetu", date: new Date().toISOString().split('T')[0], author: "System", gender: "all", recipient: "" }];
-        let schedules = [{ day: "Jumapili", time: "09:00", activity: "Ibada Kuu" }, { day: "Jumatano", time: "17:00", activity: "Maombi" }];
+        let announcements = [{ id: 1, title: "Karibu Kanisani", content: "Karibu katika ibada zetu. Mungu akubariki!", date: new Date().toISOString().split('T')[0], author: "System", gender: "all", recipient: "" }];
+        let schedules = [{ day: "Jumapili", time: "09:00", activity: "Ibada Kuu" }, { day: "Jumatano", time: "17:00", activity: "Mkutano wa Maombi" }];
         let posts = [];
         let counselingRequests = [];
         let pendingUsers = [];
@@ -170,9 +177,9 @@
             { provider: "Benki", number: "015D12345678", name: "CRDB Bank - CASFETA" }
         ];
         let churchExpenses = [];
+        let notifications = [];
 
         const roleNames = { chairperson: "Mwenyekiti", secretary: "Katibu", treasurer: "Mweka Hazina", makada: "Makada", bakada: "Bakada", member: "Mwanachama", it: "IT" };
-        
         const adminRoles = ['chairperson', 'secretary', 'treasurer', 'makada', 'bakada'];
         
         const menuByRole = {
@@ -261,6 +268,14 @@
             }
         }
 
+        function addNotification(userEmail, title, message, type = 'info') {
+            notifications.push({ id: Date.now(), userEmail, title, message, type, isRead: false, date: new Date().toISOString() });
+        }
+
+        function getUserNotifications() {
+            return notifications.filter(n => n.userEmail === currentUser.email && !n.isRead);
+        }
+
         function handleLogin(e) {
             e.preventDefault();
             const email = document.getElementById('username').value.trim();
@@ -316,7 +331,9 @@
             if (index !== -1) members[index].password = newPwd;
             showToast('Nenosiri limebadilishwa kikamilifu');
             bootstrap.Modal.getInstance(document.getElementById('changePasswordModal')).hide();
-            document.getElementById('changePasswordForm')?.reset();
+            document.getElementById('oldPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
         }
 
         function showDashboard() {
@@ -375,15 +392,19 @@
         function renderDashboard() {
             const totalMembers = members.filter(m => m.status === 'approved').length;
             const totalContrib = contributions.reduce((s, c) => s + c.amount, 0);
-            const canSeeStats = adminRoles.includes(currentUser.role);
+            const pendingCounseling = counselingRequests.filter(r => r.status === 'pending' && r.counselor === currentUser.role).length;
+            const unreadNotif = getUserNotifications().length;
             
-            let statsHtml = '';
-            if (canSeeStats) {
-                statsHtml = `<div class="row">
-                    <div class="col-md-4"><div class="stat-card"><i class="fas fa-users"></i><h3>${totalMembers}</h3><p>Washiriki</p></div></div>
-                    <div class="col-md-4"><div class="stat-card"><i class="fas fa-hand-holding-usd"></i><h3>${totalContrib.toLocaleString()} TZS</h3><p>Michango Yote</p></div></div>
-                </div>`;
+            let statsHtml = `<div class="row">
+                <div class="col-md-3"><div class="stat-card"><i class="fas fa-users"></i><h3>${totalMembers}</h3><p>Washiriki</p></div></div>
+                <div class="col-md-3"><div class="stat-card"><i class="fas fa-hand-holding-usd"></i><h3>${totalContrib.toLocaleString()} TZS</h3><p>Michango Yote</p></div></div>`;
+            if (currentUser.role === 'makada' || currentUser.role === 'bakada') {
+                statsHtml += `<div class="col-md-3"><div class="stat-card"><i class="fas fa-envelope"></i><h3>${pendingCounseling}</h3><p>Maombi Mapya</p></div></div>`;
             }
+            if (unreadNotif > 0) {
+                statsHtml += `<div class="col-md-3"><div class="stat-card"><i class="fas fa-bell"></i><h3>${unreadNotif}</h3><p>Arifa Mpya</p></div></div>`;
+            }
+            statsHtml += `</div>`;
             
             const galleryPosts = posts.filter(p => p.image || p.type === 'poster' || p.type === 'event');
             
@@ -398,7 +419,20 @@
                         <img src="${p.image}" onerror="this.src='https://via.placeholder.com/300?text=Picha'">
                         <div class="photo-info p-2"><strong>${p.title}</strong><p class="small">${p.content?.substring(0, 60) || ''}</p>
                         <div class="share-buttons"><button class="share-btn share-wa" onclick="event.stopPropagation();shareToWhatsApp('${p.title}','${p.content} ${p.image}')"><i class="fab fa-whatsapp"></i> Share</button>
-                        <button class="share-btn share-status" onclick="event.stopPropagation();shareToStatus('${p.image}','${p.title}')"><i class="fab fa-whatsapp"></i> Status</button></div></div></div>`).join('') || '<p>Hakuna picha bado</p>'}</div></div></div></div></div>`;
+                        <button class="share-btn share-status" onclick="event.stopPropagation();shareToStatus('${p.image}','${p.title}')"><i class="fab fa-whatsapp"></i> Status</button>
+                        <button class="share-btn copy-link" onclick="event.stopPropagation();downloadPhoto('${p.image}','${p.title}')"><i class="fas fa-download"></i> Download</button></div></div></div>`).join('') || '<p>Hakuna picha bado</p>'}</div></div></div></div>`;
+        }
+
+        function downloadPhoto(imageUrl, title) {
+            if (imageUrl) {
+                const link = document.createElement('a');
+                link.href = imageUrl;
+                link.download = `${title}.jpg`;
+                link.click();
+                showToast('Picha inapakuliwa...');
+            } else {
+                showToast('Hakuna URL ya picha', 'error');
+            }
         }
 
         function renderGallery() {
@@ -409,7 +443,7 @@
                     <div class="photo-info p-2"><strong>${p.title}</strong><p class="small">${p.content?.substring(0, 80) || ''}</p>
                     <div class="share-buttons"><button class="share-btn share-wa" onclick="event.stopPropagation();shareToWhatsApp('${p.title}','${p.content} ${p.image}')"><i class="fab fa-whatsapp"></i> Share</button>
                     <button class="share-btn share-status" onclick="event.stopPropagation();shareToStatus('${p.image}','${p.title}')"><i class="fab fa-whatsapp"></i> Status</button>
-                    <button class="share-btn copy-link" onclick="event.stopPropagation();copyToClipboard('${p.image}')"><i class="fas fa-copy"></i> Link</button></div></div></div>`).join('') || '<div class="alert alert-info">Hakuna picha bado</div>'}</div>`;
+                    <button class="share-btn copy-link" onclick="event.stopPropagation();downloadPhoto('${p.image}','${p.title}')"><i class="fas fa-download"></i> Download</button></div></div></div>`).join('') || '<div class="alert alert-info">Hakuna picha bado</div>'}</div>`;
         }
 
         function renderMembers() {
@@ -417,7 +451,7 @@
             const approved = members.filter(m => m.status === 'approved');
             document.getElementById('contentArea').innerHTML = `
                 <div class="d-flex justify-content-between mb-3"><h3>Washiriki na Karama Zao</h3><button class="btn btn-primary" onclick="openModal('memberModal')">+ Ongeza Mwanachama</button></div>
-                <div class="table-responsive"><table class="table table-striped"><thead>骨<th>Jina</th><th>Barua Pepe</th><th>Simu</th><th>Jinsia</th><th>Wadhifa</th><th>Karama</th></thead><tbody>
+                <div class="table-responsive"><table class="table table-striped"><thead><tr><th>Jina</th><th>Barua Pepe</th><th>Simu</th><th>Jinsia</th><th>Wadhifa</th><th>Karama</th></tr></thead><tbody>
                 ${approved.map(m => `<tr><td>${m.firstName} ${m.lastName}</td><td>${m.email}</td><td>${m.phone}</td><td>${m.gender === 'Me' ? 'Kike' : 'Kiume'}</td><td><span class="badge bg-primary">${roleNames[m.role]}</span></td><td><span class="talent-badge">${m.talent || '-'}</span></td></tr>`).join('')}
                 </tbody></table></div>`;
         }
@@ -428,18 +462,25 @@
             document.getElementById('contentArea').innerHTML = `
                 <div class="d-flex justify-content-between mb-3"><h3>Michango Yote</h3><button class="btn btn-success" onclick="openModal('contributionModal')">+ Tangaza Mchango</button></div>
                 <div class="row mb-3"><div class="col-md-4"><div class="stat-card"><h3>${total.toLocaleString()} TZS</h3><p>Jumla ya Michango</p></div></div></div>
-                <div class="table-responsive"><table class="table"><thead><tr><th>Tarehe</th><th>Mwanachama/Jina</th><th>Aina</th><th>Kiasi</th><th>Njia</th><th>Namba ya Malipo</th></tr></thead><tbody>
-                ${contributions.map(c => `<tr><td>${c.date}</td><td>${c.memberName}</td><td>${c.type}</td><td>${c.amount.toLocaleString()} TZS</td><td>${c.paymentMethod}</td><td>${c.paymentNumber || '-'}</td></tr>`).join('') || '<tr><td colspan="6">Hakuna michango</td></tr>'}
+                <div class="table-responsive"><table class="table"><thead><tr><th>Tarehe</th><th>Mwanachama/Jina</th><th>Aina</th><th>Kiasi</th><th>Njia</th><th>Namba ya Malipo</th><th>Hali</th></tr></thead><tbody>
+                ${contributions.map(c => `<tr><td>${c.date}</td><td>${c.memberName}</td><td>${c.type}</td><td>${c.amount.toLocaleString()} TZS</td><td>${c.paymentMethod}</td><td>${c.paymentNumber || '-'}</td><td><span class="payment-status ${c.status === 'complete' ? 'status-complete' : 'status-partial'}">${c.status === 'complete' ? 'Imekamilika' : c.paidAmount ? `${c.paidAmount?.toLocaleString()} / ${c.amount.toLocaleString()}` : 'Inasubiri'}</span></td></tr>`).join('') || '<tr><td colspan="7">Hakuna michango</td></tr>'}
                 </tbody></table></div>`;
         }
 
         function renderMyContributions() {
             const my = contributions.filter(c => c.memberEmail === currentUser.email);
             const total = my.reduce((s, c) => s + c.amount, 0);
+            const paidTotal = my.reduce((s, c) => s + (c.paidAmount || c.amount), 0);
+            const remaining = total - paidTotal;
+            const percent = total > 0 ? (paidTotal / total * 100) : 0;
+            
             document.getElementById('contentArea').innerHTML = `
-                <h3>Michango Yangu</h3><div class="stat-card"><h3>${total.toLocaleString()} TZS</h3><p>Jumla ya Michango Yako</p></div>
-                <div class="table-responsive"><table class="table"><thead><tr><th>Tarehe</th><th>Aina</th><th>Kiasi</th><th>Njia</th><th>Namba ya Malipo</th></tr></thead><tbody>
-                ${my.map(c => `<tr><td>${c.date}</td><td>${c.type}</td><td>${c.amount.toLocaleString()} TZS</td><td>${c.paymentMethod}</td><td>${c.paymentNumber || '-'}</td></tr>`).join('') || '<tr><td colspan="5">Hujatoa mchango bado</td></tr>'}
+                <h3>Michango Yangu</h3>
+                <div class="stat-card"><h3>${paidTotal.toLocaleString()} TZS / ${total.toLocaleString()} TZS</h3><p>Jumla ya Michango Yako</p>
+                <div class="progress-bar-custom"><div class="progress-fill" style="width: ${percent}%"></div></div>
+                <p>${remaining > 0 ? `Umebaki: ${remaining.toLocaleString()} TZS` : 'Umekamilisha michango yako! ✓'}</p></div>
+                <div class="table-responsive"><table class="table"><thead><tr><th>Tarehe</th><th>Aina</th><th>Kiasi</th><th>Kiasi Kilicholipwa</th><th>Njia</th><th>Namba ya Malipo</th><th>Hali</th></tr></thead><tbody>
+                ${my.map(c => `<tr><td>${c.date}</td><td>${c.type}</td><td>${c.amount.toLocaleString()} TZS</td><td>${(c.paidAmount || 0).toLocaleString()} TZS</td><td>${c.paymentMethod}</td><td>${c.paymentNumber || '-'}</td><td><span class="payment-status ${c.status === 'complete' ? 'status-complete' : 'status-partial'}">${c.status === 'complete' ? 'Imekamilika' : `${((c.paidAmount || 0) / c.amount * 100).toFixed(0)}% Imelipwa`}</span></td></tr>`).join('') || '<tr><td colspan="7">Hujatoa mchango bado</td></tr>'}
                 </tbody></table></div>`;
         }
 
@@ -468,7 +509,8 @@
                 <div class="row">${posts.map(p => `
                     <div class="col-md-6 mb-3"><div class="card"><div class="card-header">${p.title} <span class="badge bg-info">${p.type}</span></div><div class="card-body">${p.image ? `<img src="${p.image}" class="img-fluid rounded mb-2 poster-img" onerror="this.src='https://via.placeholder.com/300'">` : ''}<p>${p.content}</p>${p.link ? `<a href="${p.link}" target="_blank" class="btn btn-sm btn-danger">Live</a>` : ''}
                     <div class="share-buttons"><button class="share-btn share-wa" onclick="shareToWhatsApp('${p.title}','${p.content} ${p.image || ''}')"><i class="fab fa-whatsapp"></i> Share</button>
-                    <button class="share-btn share-status" onclick="shareToStatus('${p.image}','${p.title}')"><i class="fab fa-whatsapp"></i> Status</button></div></div></div></div>`).join('') || '<div class="alert alert-info">Hakuna machapisho</div>'}</div>`;
+                    <button class="share-btn share-status" onclick="shareToStatus('${p.image}','${p.title}')"><i class="fab fa-whatsapp"></i> Status</button>
+                    <button class="share-btn copy-link" onclick="downloadPhoto('${p.image}','${p.title}')"><i class="fas fa-download"></i> Download</button></div></div></div></div>`).join('') || '<div class="alert alert-info">Hakuna machapisho</div>'}</div>`;
         }
 
         function renderLiveStream() {
@@ -499,11 +541,30 @@
             const total = contributions.reduce((s, c) => s + c.amount, 0);
             const totalExpenses = churchExpenses.reduce((s, e) => s + e.amount, 0);
             document.getElementById('contentArea').innerHTML = `
-                <h3>Fedha za Kanisa</h3><div class="row">
+                <div class="d-flex justify-content-between mb-3"><h3>Fedha za Kanisa</h3><button class="btn btn-primary" onclick="openModal('expenseModal')">+ Rekodi Matumizi</button></div>
+                <div class="row">
                     <div class="col-md-4"><div class="stat-card"><h3>${total.toLocaleString()} TZS</h3><p>Jumla ya Mapato</p></div></div>
                     <div class="col-md-4"><div class="stat-card"><h3>${totalExpenses.toLocaleString()} TZS</h3><p>Matumizi</p></div></div>
                     <div class="col-md-4"><div class="stat-card"><h3>${(total - totalExpenses).toLocaleString()} TZS</h3><p>Salio</p></div></div>
-                </div>`;
+                </div>
+                <div class="card"><div class="card-header">Muhtasari wa Mapato kwa Aina</div><div class="card-body">${(() => {
+                    const byType = {};
+                    contributions.forEach(c => { byType[c.type] = (byType[c.type] || 0) + c.amount; });
+                    return Object.entries(byType).map(([k, v]) => `<p><strong>${k}:</strong> ${v.toLocaleString()} TZS</p>`).join('');
+                })()}</div></div>`;
+        }
+
+        function addExpense() {
+            const description = document.getElementById('expenseDesc').value;
+            const amount = parseFloat(document.getElementById('expenseAmount').value);
+            const date = document.getElementById('expenseDate').value || new Date().toISOString().split('T')[0];
+            if (!description || !amount) { showToast('Jaza maelezo na kiasi', 'error'); return; }
+            churchExpenses.push({ id: Date.now(), description, amount, date });
+            showToast('Matumizi yamehifadhiwa');
+            bootstrap.Modal.getInstance(document.getElementById('expenseModal')).hide();
+            document.getElementById('expenseDesc').value = '';
+            document.getElementById('expenseAmount').value = '';
+            loadContent('financial');
         }
 
         function renderExpenses() {
@@ -519,32 +580,38 @@
                     <div class="col-md-6 mb-3"><div class="card"><div class="card-header"><i class="fas fa-${p.provider === 'Benki' ? 'university' : 'mobile-alt'}"></i> ${p.provider}</div><div class="card-body"><p><strong>Namba/Jina:</strong> ${p.number}</p><p><strong>Jina la Akaunti:</strong> ${p.name}</p><i class="fas fa-copy copy-number" onclick="copyToClipboard('${p.number}')"> Nakili Namba</i></div></div></div>`).join('')}</div>`;
         }
 
-        function addPaymentNumber() {
-            document.getElementById('newPaymentProvider').value = 'M-Pesa';
-            document.getElementById('newPaymentNumber').value = '';
-            document.getElementById('newPaymentName').value = '';
-            new bootstrap.Modal(document.getElementById('addPaymentNumberModal')).show();
-        }
-
-        function saveNewPaymentNumber() {
-            const provider = document.getElementById('newPaymentProvider').value;
-            const number = document.getElementById('newPaymentNumber').value;
-            const name = document.getElementById('newPaymentName').value || 'CASFETA TAYOMI';
-            if (!number) { showToast('Ingiza namba ya malipo', 'error'); return; }
-            paymentNumbers.push({ provider, number, name });
-            showToast('Namba ya malipo imeongezwa');
-            bootstrap.Modal.getInstance(document.getElementById('addPaymentNumberModal')).hide();
-            renderPaymentMethods();
-        }
-
         function renderCounselingRequests(role) {
             const myRequests = counselingRequests.filter(r => r.counselor === role);
-            document.getElementById('contentArea').innerHTML = `<h3>Maombi ya Ushauri</h3><div class="card"><div class="card-body">${myRequests.length ? myRequests.map(r => `<div class="alert alert-info mb-2"><strong>Kutoka: ${r.fromName}</strong><br><strong>Aina:</strong> ${r.type === 'marriage' ? 'Ushauri wa Ndoa' : r.type === 'discipline' ? 'Nidhamu' : 'Msaada wa Maisha'}<br><p>${r.details}</p><small>${r.date}</small></div>`).join('') : '<div class="alert alert-info">Hakuna maombi yaliyowasilishwa</div>'}</div></div>`;
+            document.getElementById('contentArea').innerHTML = `<h3>Maombi ya Ushauri</h3><div class="card"><div class="card-body">${myRequests.length ? myRequests.map(r => `
+                <div class="alert alert-info mb-2"><strong>Kutoka: ${r.fromName}</strong><br><strong>Aina:</strong> ${r.type === 'marriage' ? 'Ushauri wa Ndoa' : r.type === 'discipline' ? 'Nidhamu' : r.type === 'life' ? 'Msaada wa Maisha' : 'Mawaidha'}<br><p>${r.details}</p><small>${r.date}</small>
+                ${r.response ? `<hr><strong>Jibu:</strong> ${r.response}<br><small>Jibu limewasilishwa</small>` : `<button class="btn btn-sm btn-primary mt-2" onclick="openReplyModal(${r.id}, '${r.fromName}')"><i class="fas fa-reply"></i> Jibu</button>`}</div>`).join('') : '<div class="alert alert-info">Hakuna maombi yaliyowasilishwa</div>'}</div></div>`;
+        }
+
+        function openReplyModal(requestId, fromName) {
+            document.getElementById('replyRequestId').value = requestId;
+            document.getElementById('replyRequestFrom').innerHTML = `<strong>Kutoka:</strong> ${fromName}`;
+            document.getElementById('replyMessage').value = '';
+            new bootstrap.Modal(document.getElementById('replyCounselingModal')).show();
+        }
+
+        function submitReply() {
+            const requestId = parseInt(document.getElementById('replyRequestId').value);
+            const reply = document.getElementById('replyMessage').value;
+            if (!reply) { showToast('Ingiza jibu lako', 'error'); return; }
+            const request = counselingRequests.find(r => r.id === requestId);
+            if (request) {
+                request.response = reply;
+                request.status = 'resolved';
+                addNotification(request.fromEmail, 'Jibu la Ombi Lako', `Ombi lako la ${request.type} limejibiwa. Tafadhali angalia.`, 'success');
+                showToast('Jibu limetumwa kwa mwanachama kwa siri');
+            }
+            bootstrap.Modal.getInstance(document.getElementById('replyCounselingModal')).hide();
+            loadContent(currentUser.role === 'makada' ? 'womenCounseling' : 'menCounseling');
         }
 
         function renderTimetable() {
             if (currentUser.role !== 'secretary') { document.getElementById('contentArea').innerHTML = '<div class="alert alert-warning">Sehemu hii ni ya Katibu pekee</div>'; return; }
-            document.getElementById('contentArea').innerHTML = `<div class="d-flex justify-content-between mb-3"><h3>Ratiba za Kanisa</h3><button class="btn btn-primary" onclick="openModal('timetableModal')">+ Ongeza Ratiba</button></div><div class="table-responsive"><table class="table"><thead><tr><th>Siku</th><th>Muda</th><th>Shughuli</th></tr></thead><tbody>${schedules.map(s => `<tr><td>${s.day}</td><td>${s.time}</td><td>${s.activity}</td></tr>`).join('')}</tbody></table></div>`;
+            document.getElementById('contentArea').innerHTML = `<div class="d-flex justify-content-between mb-3"><h3>Ratiba za Kanisa</h3><button class="btn btn-primary" onclick="openModal('timetableModal')">+ Ongeza Ratiba</button></div><div class="table-responsive"><table class="table"><thead><tr><th>Siku</th><th>Muda</th><th>Shughuli</th></tr></thead><tbody>${schedules.map(s => `<tr><td><strong>${s.day}</strong></td><td>${s.time}</td><td>${s.activity}</td></tr>`).join('')}</tbody> </table></div>`;
         }
 
         function renderApproveUsers() {
@@ -575,57 +642,31 @@
         }
 
         function renderMakePayment() {
+            const myPending = contributions.filter(c => c.memberEmail === currentUser.email && c.status !== 'complete');
             document.getElementById('contentArea').innerHTML = `
-                <h3>Fanya Malipo</h3><div class="row"><div class="col-md-6"><div class="card"><div class="card-header">Chagua Mchango</div><div class="card-body"><select class="form-select mb-3" id="paymentTypeSelect"><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option><option value="Shukrani">Shukrani</option></select><input type="number" class="form-control mb-3" id="paymentAmount" placeholder="Kiasi (TZS)"><input type="text" class="form-control mb-3" id="paymentPhoneNumber" placeholder="Namba yako ya simu (kwa uthibitisho)"><button class="btn btn-success w-100" onclick="showPaymentDetails()">Endelea</button></div></div></div><div class="col-md-6"><div class="card"><div class="card-header">Njia za Malipo za Kanisa</div><div class="card-body">${paymentNumbers.map(p => `<div class="payment-card"><i class="fas fa-${p.provider === 'Benki' ? 'university' : 'mobile-alt'}"></i> <strong>${p.provider}:</strong> ${p.number}<br><small>${p.name}</small><i class="fas fa-copy copy-number" onclick="copyToClipboard('${p.number}')"> Nakili</i></div>`).join('')}</div></div></div></div>`;
+                <h3>Fanya Malipo</h3>
+                <div class="row">
+                    <div class="col-md-6"><div class="card"><div class="card-header">Michango Yako Inayosubiri</div><div class="card-body">
+                    ${myPending.length ? myPending.map(c => `
+                        <div class="border-bottom pb-2 mb-2">
+                            <strong>${c.type}</strong> - ${c.amount.toLocaleString()} TZS
+                            <div class="progress-bar-custom mt-1"><div class="progress-fill" style="width: ${((c.paidAmount || 0) / c.amount * 100)}%"></div></div>
+                            <p class="small">Imelipwa: ${(c.paidAmount || 0).toLocaleString()} TZS | Baki: ${(c.amount - (c.paidAmount || 0)).toLocaleString()} TZS</p>
+                            <button class="btn btn-sm btn-success" onclick="continuePayment(${c.id})">Lipa Salio</button>
+                        </div>`).join('') : '<p>Hakuna michango inayosubiri</p>'}
+                    </div></div></div>
+                    <div class="col-md-6"><div class="card"><div class="card-header">Njia za Malipo za Kanisa</div><div class="card-body">${paymentNumbers.map(p => `<div class="payment-card"><i class="fas fa-${p.provider === 'Benki' ? 'university' : 'mobile-alt'}"></i> <strong>${p.provider}:</strong> ${p.number}<br><small>${p.name}</small><i class="fas fa-copy copy-number" onclick="copyToClipboard('${p.number}')"> Nakili</i></div>`).join('')}</div></div></div>
+                </div>`;
         }
 
-        function renderMyTalent() {
-            const userMember = members.find(m => m.email === currentUser.email);
-            document.getElementById('contentArea').innerHTML = `<h3>Karama Yangu</h3><div class="card text-center p-4"><i class="fas fa-star fa-4x text-warning mb-3"></i><h4>${userMember?.talent || 'Bado haijajazwa'}</h4><p>Ikiwa ungependa kubadilisha karama yako, wasiliana na Katibu au Mwenyekiti.</p><button class="btn btn-outline-primary" onclick="showToast('Wasiliana na Katibu kwa mabadiliko', 'info')">Wasiliana</button></div>`;
-        }
-
-        function renderRequestCounseling() {
-            const counselor = currentUser.gender === 'Me' ? 'Makada (Wanawake)' : 'Bakada (Wanaume)';
-            document.getElementById('contentArea').innerHTML = `<h3>Wasiliana kwa Siri na ${counselor}</h3><div class="card"><div class="card-body"><select class="form-select mb-3" id="counselingTypeSelect"><option value="marriage">Ushauri wa Ndoa/Uchumba</option><option value="discipline">Nidhamu/Kesi</option><option value="life">Msaada wa Kiuchumi/Maisha</option><option value="guidance">Mawaidha</option></select><textarea class="form-control mb-3" id="counselingMsg" rows="4" placeholder="Andika ombi lako hapa... (linafika kwa siri)"></textarea><button class="btn btn-primary w-100" onclick="sendCounselingRequest()">Tuma Ujumbe kwa Siri</button><div class="alert alert-info mt-3 small"><i class="fas fa-lock"></i> Ujumbe wako utafika kwa siri kwa ${counselor}</div></div></div>`;
-        }
-
-        function sendCounselingRequest() {
-            const type = document.getElementById('counselingTypeSelect').value;
-            const details = document.getElementById('counselingMsg').value;
-            if (!details) { showToast('Andika ujumbe wako', 'error'); return; }
-            counselingRequests.push({ id: Date.now(), fromName: `${currentUser.firstName} ${currentUser.lastName}`, fromEmail: currentUser.email, type: type, details: details, date: new Date().toISOString().split('T')[0], counselor: currentUser.gender === 'Me' ? 'makada' : 'bakada' });
-            showToast('Ujumbe wako umetumwa kwa siri');
-            document.getElementById('counselingMsg').value = '';
-        }
-
-        function sendCounseling() {
-            const type = document.getElementById('counselingType').value;
-            const details = document.getElementById('counselingDetails').value;
-            if (!type || !details) { showToast('Jaza taarifa zote', 'error'); return; }
-            counselingRequests.push({ id: Date.now(), fromName: `${currentUser.firstName} ${currentUser.lastName}`, fromEmail: currentUser.email, type: type, details: details, date: new Date().toISOString().split('T')[0], counselor: currentUser.gender === 'Me' ? 'makada' : 'bakada' });
-            showToast('Ujumbe wako umetumwa kwa siri');
-            bootstrap.Modal.getInstance(document.getElementById('counselingModal')).hide();
-        }
-
-        function renderDownloadContributions() {
-            if (currentUser.role !== 'treasurer') { document.getElementById('contentArea').innerHTML = '<div class="alert alert-warning">Sehemu hii ni ya Mweka Hazina pekee</div>'; return; }
-            document.getElementById('contentArea').innerHTML = `<h3>Download PDF ya Michango</h3><div class="card"><div class="card-body"><select class="form-select mb-3" id="filterContributionType"><option value="all">Zote</option><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option></select><button class="btn btn-primary" onclick="downloadContributionsPDF()">Download PDF</button></div></div>`;
-        }
-
-        function downloadContributionsPDF() {
-            const filter = document.getElementById('filterContributionType').value;
-            let data = contributions;
-            if (filter !== 'all') data = contributions.filter(c => c.type === filter);
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            doc.text('CASFETA TAYOMI - Ripoti ya Michango', 14, 20);
-            doc.text(`Tarehe: ${new Date().toLocaleDateString()}`, 14, 30);
-            const tableData = data.map(c => [c.date, c.memberName, c.type, c.amount.toLocaleString(), c.paymentMethod, c.paymentNumber || '-']);
-            doc.autoTable({ head: [['Tarehe', 'Mwanachama/Jina', 'Aina', 'Kiasi', 'Njia', 'Namba ya Malipo']], body: tableData, startY: 40 });
-            const total = data.reduce((s, c) => s + c.amount, 0);
-            doc.text(`Jumla: ${total.toLocaleString()} TZS`, 14, doc.lastAutoTable.finalY + 10);
-            doc.save(`ripoti_michango_${filter}.pdf`);
-            showToast('PDF imepakuliwa');
+        function continuePayment(contributionId) {
+            const contribution = contributions.find(c => c.id === contributionId);
+            if (contribution) {
+                document.getElementById('paymentTypeSelect').value = contribution.type;
+                document.getElementById('paymentAmount').value = contribution.amount - (contribution.paidAmount || 0);
+                document.getElementById('paymentContributionId').value = contributionId;
+                showPaymentDetails();
+            }
         }
 
         function showPaymentDetails() {
@@ -645,20 +686,95 @@
             const selected = document.querySelector('input[name="paymentOption"]:checked');
             if (!selected) { showToast('Chagua njia ya malipo', 'error'); return; }
             const provider = selected.value;
-            const providerNumber = selected.getAttribute('data-number');
-            contributions.push({ 
-                id: Date.now(), 
-                memberName: `${currentUser.firstName} ${currentUser.lastName}`, 
-                memberEmail: currentUser.email,
-                type: type, 
-                amount: amount, 
-                paymentMethod: provider, 
-                paymentNumber: phoneNumber,
-                date: new Date().toISOString().split('T')[0] 
-            });
-            showToast(`Mchango wa ${type} shilingi ${amount.toLocaleString()} umehifadhiwa. Mweka Hazina ataona taarifa zako.`);
+            
+            let existingContribution = contributions.find(c => c.memberEmail === currentUser.email && c.type === type && c.status !== 'complete');
+            if (existingContribution) {
+                existingContribution.paidAmount = (existingContribution.paidAmount || 0) + amount;
+                if (existingContribution.paidAmount >= existingContribution.amount) {
+                    existingContribution.status = 'complete';
+                    existingContribution.paidAmount = existingContribution.amount;
+                } else {
+                    existingContribution.status = 'partial';
+                }
+                existingContribution.paymentMethod = provider;
+                existingContribution.paymentNumber = phoneNumber;
+                existingContribution.date = new Date().toISOString().split('T')[0];
+                showToast(`Mchango wa ${type} shilingi ${amount.toLocaleString()} umehifadhiwa. ${existingContribution.status === 'complete' ? 'Umekamilisha mchango wako!' : `Umebaki ${(existingContribution.amount - existingContribution.paidAmount).toLocaleString()} TZS`}`);
+            } else {
+                contributions.push({ 
+                    id: Date.now(), 
+                    memberName: `${currentUser.firstName} ${currentUser.lastName}`, 
+                    memberEmail: currentUser.email,
+                    type: type, 
+                    amount: parseFloat(amount), 
+                    paidAmount: parseFloat(amount),
+                    paymentMethod: provider, 
+                    paymentNumber: phoneNumber,
+                    status: 'complete',
+                    date: new Date().toISOString().split('T')[0] 
+                });
+                showToast(`Mchango wa ${type} shilingi ${amount.toLocaleString()} umehifadhiwa. Mweka Hazina ataona taarifa zako.`);
+            }
             bootstrap.Modal.getInstance(document.getElementById('paymentModal')).hide();
             loadContent('myContributions');
+        }
+
+        function renderMyTalent() {
+            const userMember = members.find(m => m.email === currentUser.email);
+            document.getElementById('contentArea').innerHTML = `<h3>Karama Yangu</h3><div class="card text-center p-4"><i class="fas fa-star fa-4x text-warning mb-3"></i><h4>${userMember?.talent || 'Bado haijajazwa'}</h4><p>Ikiwa ungependa kubadilisha karama yako, wasiliana na Katibu au Mwenyekiti.</p><button class="btn btn-outline-primary" onclick="showToast('Wasiliana na Katibu kwa mabadiliko', 'info')">Wasiliana</button></div>`;
+        }
+
+        function renderRequestCounseling() {
+            const counselor = currentUser.gender === 'Me' ? 'Makada (Wanawake)' : 'Bakada (Wanaume)';
+            document.getElementById('contentArea').innerHTML = `<h3>Wasiliana kwa Siri na ${counselor}</h3><div class="card"><div class="card-body"><select class="form-select mb-3" id="counselingTypeSelect"><option value="marriage">Ushauri wa Ndoa/Uchumba</option><option value="discipline">Nidhamu/Kesi</option><option value="life">Msaada wa Kiuchumi/Maisha</option><option value="guidance">Mawaidha</option></select><textarea class="form-control mb-3" id="counselingMsg" rows="4" placeholder="Andika ombi lako hapa... (linafika kwa siri)"></textarea><button class="btn btn-primary w-100" onclick="sendCounselingRequest()">Tuma Ujumbe kwa Siri</button><div class="alert alert-info mt-3 small"><i class="fas fa-lock"></i> Ujumbe wako utafika kwa siri kwa ${counselor} na utajibiwa kwa siri</div></div></div>`;
+        }
+
+        function sendCounselingRequest() {
+            const type = document.getElementById('counselingTypeSelect').value;
+            const details = document.getElementById('counselingMsg').value;
+            if (!details) { showToast('Andika ujumbe wako', 'error'); return; }
+            counselingRequests.push({ 
+                id: Date.now(), 
+                fromName: `${currentUser.firstName} ${currentUser.lastName}`, 
+                fromEmail: currentUser.email,
+                type: type, 
+                details: details, 
+                date: new Date().toISOString().split('T')[0], 
+                counselor: currentUser.gender === 'Me' ? 'makada' : 'bakada',
+                status: 'pending'
+            });
+            showToast('Ujumbe wako umetumwa kwa siri. Utapata arifa ukijibiwa.');
+            document.getElementById('counselingMsg').value = '';
+        }
+
+        function sendCounseling() {
+            const type = document.getElementById('counselingType').value;
+            const details = document.getElementById('counselingDetails').value;
+            if (!type || !details) { showToast('Jaza taarifa zote', 'error'); return; }
+            counselingRequests.push({ id: Date.now(), fromName: `${currentUser.firstName} ${currentUser.lastName}`, fromEmail: currentUser.email, type: type, details: details, date: new Date().toISOString().split('T')[0], counselor: currentUser.gender === 'Me' ? 'makada' : 'bakada', status: 'pending' });
+            showToast('Ujumbe wako umetumwa kwa siri');
+            bootstrap.Modal.getInstance(document.getElementById('counselingModal')).hide();
+        }
+
+        function renderDownloadContributions() {
+            if (currentUser.role !== 'treasurer') { document.getElementById('contentArea').innerHTML = '<div class="alert alert-warning">Sehemu hii ni ya Mweka Hazina pekee</div>'; return; }
+            document.getElementById('contentArea').innerHTML = `<h3>Download PDF ya Michango</h3><div class="card"><div class="card-body"><select class="form-select mb-3" id="filterContributionType"><option value="all">Zote</option><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option></select><button class="btn btn-primary" onclick="downloadContributionsPDF()">Download PDF</button></div></div>`;
+        }
+
+        function downloadContributionsPDF() {
+            const filter = document.getElementById('filterContributionType').value;
+            let data = contributions;
+            if (filter !== 'all') data = contributions.filter(c => c.type === filter);
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.text('CASFETA TAYOMI - Ripoti ya Michango', 14, 20);
+            doc.text(`Tarehe: ${new Date().toLocaleDateString()}`, 14, 30);
+            const tableData = data.map(c => [c.date, c.memberName, c.type, c.amount.toLocaleString(), c.paidAmount ? c.paidAmount.toLocaleString() : c.amount.toLocaleString(), c.status === 'complete' ? 'Imekamilika' : `${((c.paidAmount || 0) / c.amount * 100).toFixed(0)}%`, c.paymentMethod, c.paymentNumber || '-']);
+            doc.autoTable({ head: [['Tarehe', 'Mwanachama', 'Aina', 'Jumla', 'Iliyolipwa', 'Hali', 'Njia', 'Namba']], body: tableData, startY: 40 });
+            const total = data.reduce((s, c) => s + (c.paidAmount || c.amount), 0);
+            doc.text(`Jumla Iliyolipwa: ${total.toLocaleString()} TZS`, 14, doc.lastAutoTable.finalY + 10);
+            doc.save(`ripoti_michango_${filter}.pdf`);
+            showToast('PDF imepakuliwa');
         }
 
         function addMember() {
@@ -688,8 +804,10 @@
                 memberEmail: currentUser.email,
                 type: document.getElementById('contributionType').value, 
                 amount: parseFloat(document.getElementById('amount').value), 
+                paidAmount: parseFloat(document.getElementById('amount').value),
                 paymentMethod: document.getElementById('paymentMethod').value,
                 paymentNumber: document.getElementById('paymentNumber').value,
+                status: 'complete',
                 date: new Date().toISOString().split('T')[0] 
             };
             if (!newCont.type || !newCont.amount) { showToast('Chagua aina na ingiza kiasi', 'error'); return; }
@@ -750,12 +868,15 @@
             user.status = 'approved';
             members.push(user);
             pendingUsers.splice(index, 1);
-            showToast(`${user.firstName} ameidhinishwa. Anaweza kuingia kwa barua pepe yake.`);
+            addNotification(user.email, 'Akaunti Yako Imeidhinishwa', `Karibu ${user.firstName}! Sasa unaweza kuingia kwenye mfumo kwa barua pepe yako na nenosiri uliloweka.`, 'success');
+            showToast(`${user.firstName} ameidhinishwa. Amepewa arifa kwa barua pepe.`);
             loadContent('approveUsers');
         }
 
         function rejectUser(index) {
+            const user = pendingUsers[index];
             pendingUsers.splice(index, 1);
+            addNotification(user.email, 'Ombi Lako Limekataliwa', 'Tafadhali wasiliana na viongozi wa kanisa kwa maelezo zaidi.', 'error');
             showToast('Ombi limekataliwa');
             loadContent('approveUsers');
         }
@@ -787,8 +908,11 @@
             const modals = { 
                 memberModal: 'memberModal', contributionModal: 'contributionModal', announcementModal: 'announcementModal', 
                 postModal: 'postModal', timetableModal: 'timetableModal', paymentMethodModal: 'paymentMethodModal', 
-                counselingModal: 'counselingModal' 
+                counselingModal: 'counselingModal', expenseModal: 'expenseModal'
             };
+            if (modalId === 'expenseModal') {
+                document.getElementById('expenseDate').value = new Date().toISOString().split('T')[0];
+            }
             new bootstrap.Modal(document.getElementById(modals[modalId])).show();
             if (modalId === 'timetableModal') {
                 document.getElementById('scheduleList').innerHTML = `<h6>Ratiba Zilizopo</h6>${schedules.map((s, i) => `<div class="border-bottom pb-1"><strong>${s.day} ${s.time}</strong> - ${s.activity}<button class="btn btn-sm btn-danger float-end" onclick="deleteSchedule(${i})"><i class="fas fa-trash"></i></button></div>`).join('')}`;
@@ -796,6 +920,24 @@
             if (modalId === 'paymentMethodModal') {
                 document.getElementById('paymentNumbersList').innerHTML = paymentNumbers.map((p, i) => `<div class="payment-number-item"><span><strong>${p.provider}:</strong> ${p.number} (${p.name})</span><button class="btn btn-sm btn-danger" onclick="deletePaymentNumber(${i})"><i class="fas fa-trash"></i></button></div>`).join('');
             }
+        }
+
+        function addPaymentNumber() {
+            document.getElementById('newPaymentProvider').value = 'M-Pesa';
+            document.getElementById('newPaymentNumber').value = '';
+            document.getElementById('newPaymentName').value = '';
+            new bootstrap.Modal(document.getElementById('addPaymentNumberModal')).show();
+        }
+
+        function saveNewPaymentNumber() {
+            const provider = document.getElementById('newPaymentProvider').value;
+            const number = document.getElementById('newPaymentNumber').value;
+            const name = document.getElementById('newPaymentName').value || 'CASFETA TAYOMI';
+            if (!number) { showToast('Ingiza namba ya malipo', 'error'); return; }
+            paymentNumbers.push({ provider, number, name });
+            showToast('Namba ya malipo imeongezwa');
+            bootstrap.Modal.getInstance(document.getElementById('addPaymentNumberModal')).hide();
+            renderPaymentMethods();
         }
 
         function deleteSchedule(index) { schedules.splice(index, 1); openModal('timetableModal'); showToast('Ratiba imefutwa'); }
@@ -815,6 +957,7 @@
         window.addSchedule = addSchedule;
         window.approveUser = approveUser;
         window.rejectUser = rejectUser;
+        window.continuePayment = continuePayment;
         window.showPaymentDetails = showPaymentDetails;
         window.confirmPayment = confirmPayment;
         window.downloadContributionsPDF = downloadContributionsPDF;
@@ -833,6 +976,15 @@
         window.addPaymentNumber = addPaymentNumber;
         window.saveNewPaymentNumber = saveNewPaymentNumber;
         window.openImageModal = openImageModal;
+        window.downloadPhoto = downloadPhoto;
+        window.addExpense = addExpense;
+        window.openReplyModal = openReplyModal;
+        window.submitReply = submitReply;
+
+        // Add payment phone number input
+        const paymentHtml = `<input type="text" class="form-control mb-3" id="paymentPhoneNumber" placeholder="Namba yako ya simu (kwa uthibitisho)">`;
+        const paymentSelectHtml = `<select class="form-select mb-3" id="paymentTypeSelect"><option value="Zaka">Zaka</option><option value="Sadaka ya Kawaida">Sadaka ya Kawaida</option><option value="Maendeleo">Maendeleo</option><option value="Outreach">Outreach</option><option value="TEC">TEC</option><option value="Shukrani">Shukrani</option></select><input type="number" class="form-control mb-3" id="paymentAmount" placeholder="Kiasi (TZS)">`;
+        document.getElementById('makePayment')?.addEventListener('click', () => {});
 
         const saved = sessionStorage.getItem('currentUser');
         if (saved) { currentUser = JSON.parse(saved); showDashboard(); }
